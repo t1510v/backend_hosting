@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+    
+    body
+    {
+        width: 100%;
+        height: 100%;
+    }
+
+    .top-container{
+            background-color: #2980b9;
+        }
+        input{
+            height: 25px;
+            width: 300px;
+            padding: 2px;
+            margin: 5px;
+        }
+        .vit-logo{
+            height: 70px;
+            width: 250px;
+        }
+        .vtop{
+            color: #ffffff;
+            font-family: "Roboto";
+            margin-left: 1000px;
+        }
+        .form-container{
+            background-color: #edf1f1;
+            height: 80vh;
+            padding: 30px;     
+        }
+        .login-form{
+            background-color: #ffffff;
+            padding: 10px;
+            width: 450px;
+            text-align: center;
+            margin: auto;
+        }
+        .login-form-head{
+            font-family: "Roboto";
+            text-align: left;
+        }
+        .captcha{
+            padding: 5px;
+            height: 50px;
+            width:250px;
+            text-align: center;
+            margin: 10px;
+            margin-left: 80px;
+        }
+        .reset-forget{
+            color: #6e8ec3;
+        }
+        .sign-in{
+            background-color: #327ab6;
+            color: #ffffff;
+            border-width: 0px;
+            border-radius: 5px;
+            padding: 10px;
+            font-weight: 500;
+            font-size: 12px;
+            width: 70px;
+            margin-left: 250px;
+        }
+        .error-message {
+            font-family: "Roboto";
+            font-size: 14px;
+            color: #dc3545;
+        }
+
+.b
+{
+    background-color: #e0d4f9;
+    grid-area: footer;
+}
+
+#f1
+{
+    float:left;
+}
+
+#f2
+{
+    float:right;
+}
+     
+</style>
+    </head>
+        <body>
+            <div class="top-container">
+                <table>
+                    <tbody><tr>
+                        <td><img src="https://vtop2.vitap.ac.in/vtop/assets/img/new%20VIT_AP%20logo.png" height="50"></td>
+                        <td><h1 class="vtop" align="right">V-Top</h1></td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="form-container">
+                <div class="login-form">
+                    <h2 class="login-form-head">V-Top Login</h2>
+                    
+                        <input type="text" placeholder="Username" id="username">
+                        <p id="userID" class="error-message"></p>
+                        <input type="password" placeholder="Password" id="password">
+                        <p id="passwordID" class="error-message"></p>
+                        <div class="captcha">
+                            <h1 class="capta-text">21BCE9200</h1>
+                        </div>
+                        <input type="text" placeholder="Captcha (CAPS &amp; NUMBERS ONLY)" id="captcha">
+                        <p id="captchaID" class="error-message"></p>
+                        <table>
+                            <tbody><tr>
+                                <td><p class="reset-forget">Reset/Forget Password</p></td>
+                                <td><div align="right"><button onclick="vtopLogin()" class="sign-in">Sign In</button></div></td>
+                            </tr>
+                        </tbody></table>
+                </div>
+                <div id="footer" class="b">
+                    <div id="f1" class="b">Copyright © 2019 VIT-AP University</div>
+                    <div id="f2" class="b">Software Development Cell(SDC)</div>
+                </div>
+            </div>
+           
+          <script>
+            let passwordID = document.getElementById("passwordID");
+            let username = document.getElementById("username");
+            let password = document.getElementById("password");
+            let captcha = document.getElementById("captcha");
+            let signIn = document.getElementById("signIn");
+            let captchaID = document.getElementById("captchaID");
+            let userID = document.getElementById("userID");
+    
+            function vtopLogin(){
+                if(password.value.length <=15 || password.value.length > 8){
+                    passwordID.textContent = "Invalid Password length";
+                    password.style.borderStyle = "solid";
+                    password.style.borderColor = "red";
+                }
+                else if(password.value != "21bce9200"){
+                    passwordID.textContent = "Password Incorrect";
+                    password.style.borderStyle = "solid";
+                    password.style.borderColor = "red";
+                }
+                if(captcha.value != "21BCE9200"){
+                    captchaID.textContent = "Invalid Captha";
+                    captcha.style.borderStyle = "solid";
+                    captcha.style.borderColor = "red";
+                }
+                if(username.value != "21bce9200@vitap.ac.in"){
+                    userID.textContent = "Incorrect username";
+                    username.style.borderStyle = "solid";
+                    username.style.borderColor = "red";
+                }
+                if((password.value.length >8 || password.value.length < 15) 
+                    && (password.value === "21bce9200") && 
+                    (captcha.value === "21BCE9200") && (username.value === "21bce9200@vitap.ac.in")){
+                    window.alert("Login successfull")
+                } 
+            }
+            </script>
+        </body>
+</html>
